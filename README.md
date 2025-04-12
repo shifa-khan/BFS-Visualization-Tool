@@ -1,6 +1,6 @@
 # Interactive BFS Algorithm Visualization Tool
 
-This project is an interactive web application that visualizes the Breadth-First Search (BFS) algorithm. BFS is a fundamental graph traversal algorithm used to explore nodes in a graph level by level, starting from a given source node.
+This project is an interactive web application built using Flask that provides a dynamic visualization of the Breadth-First Search (BFS) algorithm. BFS being a fundamental graph traversal algorithm is widely used in computer science and serves as the building block for many applications including shortest path finding, network analysis, and web crawling. The application allows users to observe how BFS explores nodes in a graph level by level from a specified starting point.
 
 ## Features
 
