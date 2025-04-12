@@ -1,0 +1,94 @@
+/* style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #f1f8ff;
+}
+
+#graphContainer {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#graphContainer img {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+.status-item {
+    margin-bottom: 10px;
+}
+
+.pseudocode {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 10px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.current-step {
+    background-color: #ffc107;
+    font-weight: bold;
+}
+
+.completed-step {
+    color: #6c757d;
+}
+
+.btn {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.current-node {
+    background-color: red;
+}
+
+.queued-node {
+    background-color: lightblue;
+}
+
+.visited-node {
+    background-color: lightgreen;
+}
+
+.unvisited-node {
+    background-color: white;
+    border: 1px solid black;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFS Algorithm Visualization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Interactive BFS Algorithm Visualization</h1>
+        
+        <div class="row">
+            <!-- Graph Input Section -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Graph Input</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="graphType" class="form-label">Graph Type:</label>
+                            <select id="graphType" class="form-select">
+                                <option value="custom">Custom</option>
+                                <option value="tree">Tree</option>
+                                <option value="cycle">Cycle</option>
+                                <option value="complete">Complete</option>
+                                <option value="path">Path</option>
+                                <option value="star">Star</option>
+                            </select>
+                        </div>
+                        
+                        <div id="customGraphOptions">
+                            <div class="mb-3">
+                                <label for="edgeList" class="form-label">Edge List:</label>
+                                <textarea id="edgeList" class="form-control" rows="5" placeholder="Format: A B, B C, A D"></textarea>
+                                <small class="text-muted">Example: A B, B C, A D</small>
+                            </div>
+                        </div>
+                        
+                        <div id="predefinedGraphOptions" style="display: none;">
+                            <div class="mb-3">
+                                <label for="graphSize" class="form-label">Graph Size:</label>
+                                <input type="number" id="graphSize" class="form-control" min="3" max="10" value="5">
+                            </div>
+                        </div>
+                        
+                        <button id="createGraphBtn" class="btn btn-primary">Create Graph</button>
+                    </div>
+                </div>
+                
+                <div class="card mt-3" id="algorithmControlsCard" style="display: none;">
+                    <div class="card-header">
+                        <h5>Algorithm Controls</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="startNode" class="form-label">Start Node:</label>
+                            <select id="startNode" class="form-select"></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="executionSpeed" class="form-label">Execution Speed:</label>
+                            <input type="range" class="form-range" id="executionSpeed" min="500" max="3000" step="500" value="1500">
+                            <small class="text-muted"><span id="speedValue">1.5</span> seconds per step</small>
+                        </div>
+                        <button id="startBfsBtn" class="btn btn-success">Start BFS</button>
+                        <button id="stepBfsBtn" class="btn btn-primary" disabled>Step</button>
+                        <button id="completeBfsBtn" class="btn btn-warning" disabled>Complete</button>
+                        <button id="resetBfsBtn" class="btn btn-danger" disabled>Reset</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Graph Visualization Section -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Graph Visualization</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <div id="graphContainer">
+                            <p class="text-muted">Create a graph to start</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-3">
+                    <!-- BFS Status -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>BFS Status</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="status-item">
+                                    <strong>Current Node:</strong> <span id="currentNode">-</span>
+                                </div>
+                                <div class="status-item">
+                                    <strong>Visited Nodes:</strong> <span id="visitedNodes">-</span>
+                                </div>
+                                <div class="status-item">
+                                    <strong>Queue:</strong> <span id="nodeQueue">-</span>
+                                </div>
+                                <div class="status-item">
+                                    <strong>Step Count:</strong> <span id="stepCount">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pseudocode -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>BFS Pseudocode</h5>
+                            </div>
+                            <div class="card-body">
+                                <pre id="pseudocode" class="pseudocode">
+BFS(G, start_node):
+    1. Create a queue Q
+    2. Mark start_node as visited and enqueue it to Q
+    3. While Q is not empty:
+        a. Dequeue vertex u from Q
+        b. For each neighbor v of u:
+            If v is not visited:
+                i. Mark v as visited
+                ii. Enqueue v to Q
+                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
